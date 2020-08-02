@@ -1,10 +1,10 @@
 # chat-app
 #server: nodejs exrepss soketio
-start: 
+#start: 
   npm i
   npm start
   
 #client: reactjs react-router-dom soketio-client
-start:
+#start:
   npm i
   npm start
