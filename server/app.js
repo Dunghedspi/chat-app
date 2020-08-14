@@ -1,7 +1,6 @@
 const http = require('http');
 const express = require('express');
 const cors = require('cors');
-const logger = require('morgan');
 const Models = require('./database/models');
 const api = require('./src/api');
 const socket = require('socket.io');
@@ -14,7 +13,6 @@ const app = express();
 
 app.use(cors());
 
-app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());

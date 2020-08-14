@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Input.css';
 const Input = (props) => {
-    const { message, setMessage, sendMessage } = props;
+    const { sendMessage } = props;
+    const [message, setMessage] = useState("");
     return (
         <form className='form' onSubmit={(event) => event.preventDefault()}>
             <div className='input-text-box'>
@@ -11,11 +12,11 @@ const Input = (props) => {
                     placeholder='Type a message ...'
                     value={message}
                     onChange={(event) => setMessage(event.target.value)}
-                    onKeyPress={(event) => (event.key === 'Enter' ? sendMessage(event) : null)}
+                    onKeyPress={(event) => (event.key === 'Enter' ? sendMessage(message) : null)}
                 />
             </div>
             <div className='btn-send'>
-                <button className='sendButton' onClick={(event) => sendMessage(event)}>
+                <button className='sendButton' onClick={() => {sendMessage(message); setMessage("");}}>
                     Send
                 </button>
             </div>

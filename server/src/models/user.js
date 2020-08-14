@@ -71,13 +71,18 @@ module.exports = () => {
             });
             return result;
         },
-        updateSockerId: async (id, socketId) => {
-            const reuslt = await Models.user.update(socketId, { where: { id } });
-            return result;
+        updateSockerId: async (userName, socketId) => {
+            console.log(userName);
+            const result = await Models.user.findOne({
+                where: {userName}
+            });
+            if(result) {result.socketId = socketId;
+            await result.save();
+            }
         },
         getSocketId: async (userName) => {
-            const reuslt = await Models.user.findOne({
-                userName,
+            const result = await Models.user.findOne({
+                where: {userName},
                 attributes: ['socketId'],
             });
             return result;

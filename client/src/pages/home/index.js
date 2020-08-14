@@ -40,17 +40,19 @@ const HomePage = (props) => {
     }, []);
 
     useEffect(() => {
-        console.log('OK');
         socket = io(ENDPOINT);
+        socket.emit("createSoketId", localStorage.getItem('userName'));
+        
+        socket.emit('join', room.userName);
 
-        console.log(room);
-        //socket.emit('join', room.userName);
+        
+    },[]);
 
-        return () => {
-            socket.emit('disconnect');
-            socket.off();
-        };
-    });
+    useEffect(()=>{
+        socket.on('receiveMessage', message =>{
+            console.log(message);
+        })
+    },[])
 
     const changeRoom = async (id) => {
         if (id !== room.rooms[0].id) {
@@ -61,6 +63,10 @@ const HomePage = (props) => {
             if (messages) setMessages(messages.data);
         }
     };
+
+    const submitMessage = (message)=>{
+        socket.emit("sendMessage", message);
+    }
     return !userName ? (
         <Redirect to='/login' />
     ) : (
@@ -76,7 +82,7 @@ const HomePage = (props) => {
                     <Messages messages={messages} name={userName} />
                 </div>
                 <div className='Input'>
-                    <Input />
+                    <Input sendMessage={submitMessage} />
                 </div>
             </div>
         </div>

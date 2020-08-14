@@ -32,7 +32,7 @@ Object.keys(db).forEach((modelName) => {
 sequelize
     .sync({
         force: false,
-        //logging: console.log,
+        logging: false,
         alter: true,
     })
     .then(function () {
