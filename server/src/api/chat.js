@@ -1,0 +1,12 @@
+const express = require('express');
+const bodyParser = require('body-parser');
+const verifyToken = require('../middleware/veryToken');
+const chatController = require('../controllers/chatController')();
+const Router = express.Router();
+Router.use(bodyParser.json());
+Router.use(bodyParser.urlencoded({ extended: false }));
+Router.get('/getmessage/:roomId', verifyToken, chatController.getMessage);
+// Router.put('/createtask', verifyToken, taskController.createTask);
+// Router.patch('/edittask', verifyToken, taskController.editTask);
+//Router.delete('/deletetask/:id', verifyToken, taskController.deleteTask);
+module.exports = Router;

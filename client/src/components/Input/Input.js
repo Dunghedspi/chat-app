@@ -4,17 +4,21 @@ const Input = (props) => {
     const { message, setMessage, sendMessage } = props;
     return (
         <form className='form' onSubmit={(event) => event.preventDefault()}>
-            <input
-                className='input'
-                type='text'
-                placeholder='Type a message ...'
-                value={message}
-                onChange={(event) => setMessage(event.target.value)}
-                onKeyPress={(event) => (event.key === 'Enter' ? sendMessage(event) : null)}
-            />
-            <button className='sendButton' onClick={(event) => sendMessage(event)}>
-                Send
-            </button>
+            <div className='input-text-box'>
+                <input
+                    className='input'
+                    type='text'
+                    placeholder='Type a message ...'
+                    value={message}
+                    onChange={(event) => setMessage(event.target.value)}
+                    onKeyPress={(event) => (event.key === 'Enter' ? sendMessage(event) : null)}
+                />
+            </div>
+            <div className='btn-send'>
+                <button className='sendButton' onClick={(event) => sendMessage(event)}>
+                    Send
+                </button>
+            </div>
         </form>
     );
 };

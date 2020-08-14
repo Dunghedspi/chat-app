@@ -5,16 +5,23 @@ import './Messages.css';
 
 const Messages = (props) => {
     const { messages, name } = props;
-    return (
-        <ScrollToBottom className='messages'>
-            {messages.map((message, index) => {
+    const renderMessage = (messages) => {
+        console.log(messages);
+        if (messages) {
+            return messages.map((message, index) => {
                 return (
                     <div key={index}>
                         <Message message={message} name={name} key={index} />
                     </div>
                 );
-            })}
-        </ScrollToBottom>
+            });
+        }
+    };
+    console.log(messages);
+    return (
+        <div className='chat-box'>
+            <ScrollToBottom className='messages'>{renderMessage(messages)}</ScrollToBottom>
+        </div>
     );
 };
 export default Messages;

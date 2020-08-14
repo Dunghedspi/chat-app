@@ -1,0 +1,29 @@
+div.HomeContainer {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-flow: row nowrap;
+    height: auto;
+}
+div.sideBarContainer {
+    padding-top: 10px;
+    flex: 20%;
+    max-width: 20%;
+    border-right: solid 1px silver;
+}
+div.chatContainer {
+    flex: 80%;
+    max-width: 80%;
+    display: flex;
+    flex-flow: column nowrap;
+    padding: 20px 0px 0px 0px;
+}
+div.Room {
+    height: 15%;
+}
+div.Message {
+    height: 75%;
+}
+div.Input {
+    padding: 10px 0 10px 0px;
+}

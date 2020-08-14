@@ -1,13 +1,27 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Join from './components/Join/Join';
-import Chat from './components/Chat/Chat';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
+import routers from './const/router';
 const App = () => {
+    const renderRouter = (routers) => {
+        if (routers) {
+            return routers.map((router, index) => (
+                <Route
+                    key={index}
+                    path={router.path}
+                    exact={router.exact}
+                    component={router.component}
+                />
+            ));
+        }
+    };
+
     return (
         <Router>
-            <Route path='/' exact component={Join} />
-            <Route path='/chat' component={Chat} />
+            <Switch>{renderRouter(routers)}</Switch>
+            <ToastContainer />
         </Router>
     );
 };

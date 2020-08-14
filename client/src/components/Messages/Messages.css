@@ -1,3 +1,6 @@
+div.chat-box {
+    width: 100%;
+}
 .messages {
     padding: 5% 0;
     overflow: auto;

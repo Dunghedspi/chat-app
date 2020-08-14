@@ -1,0 +1,72 @@
+div.login-container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(241, 238, 238);
+}
+div.login-box {
+    width: 25%;
+    height: auto;
+    padding: 20px;
+    display: flex;
+    flex-flow: column nowrap;
+    border: solid 2px rgb(83, 82, 82);
+    border-radius: 9px;
+    background-color: #f5f5f5;
+    box-shadow: 10px 10px 5px #aaaaaa;
+}
+div.login-box div.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+form[name='loginForm'] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column nowrap;
+}
+
+form[name='loginForm'] div.input-fildes {
+    position: relative;
+    margin-top: 8%;
+    width: 80%;
+}
+form[name='loginForm'] div.input-fildes label {
+    position: absolute;
+    left: 4%;
+}
+form[name='loginForm'] div.input-fildes input {
+    width: 100%;
+    padding: 1% 0% 1% 15%;
+    outline: none;
+    border: none;
+    border-bottom: solid 1px rgb(124, 124, 124);
+    background: inherit;
+}
+div.login-box div.btn-group {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+div.btn-group button {
+    width: 80%;
+    padding: 3% 10%;
+    outline: none;
+    border: solid 1px black;
+    margin-top: 4%;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 5px 10px 5px #aaaaaa;
+}
+div.btn-group button:active {
+    transform: translateY(2px);
+}
+@media (max-width: 600px) {
+    div.login-box {
+        width: 75%;
+    }
+}

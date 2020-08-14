@@ -1,18 +1,14 @@
-import React, { useState } from 'react';
-
+import React from 'react';
+import ReactEmoji from 'react-emoji';
 import './styles.css';
 
-import ReactEmoji from 'react-emoji';
-
 const Message = (props) => {
-    //const [isSentByCurrentUser, setIsSentByCurrentUser] = useState(() => false);
     let isSentByCurrentUser = false;
     const { message, name } = props;
     const { text, user } = message;
     const trimmedName = name.trim().toLowerCase();
-
-    if (user === trimmedName) {
-        //setIsSentByCurrentUser(true);
+    console.log(user, name);
+    if (user.userName === trimmedName) {
         isSentByCurrentUser = true;
     }
 
@@ -28,7 +24,7 @@ const Message = (props) => {
             <div className='messageBox backgroundLight'>
                 <p className='messageText colorDark'>{ReactEmoji.emojify(text)}</p>
             </div>
-            <p className='sentText pl-10 '>{user}</p>
+            <p className='sentText pl-10 '>{user.userName}</p>
         </div>
     );
 };
